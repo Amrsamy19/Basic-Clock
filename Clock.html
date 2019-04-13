@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Clock</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css?family=Chivo:300,700|Playfair+Display:700i" rel="stylesheet">
+    </head>
+    <style>
+        html, body{
+            height: 100%;
+            overflow: hidden;
+            font-weight: 700;
+            background: linear-gradient(180deg,rgb(98, 70, 177),rgb(91, 160, 216));
+            }
+            /**** Line Drawing ****/
+            svg {
+                display: block;
+                font-size: 7em;
+                font-family: 'Playfair Display', serif;
+                width: 960px;
+                height: 300px;
+                margin: 0 auto;
+                }
+                .text-copy {
+                    fill:none;
+                    stroke: rgb(15, 36, 155);
+                    stroke-dasharray: 2500;
+                    stroke-width: 3px;
+                    stroke-dashoffset: 2500;
+                    animation: stroke-offset 10s forwards ease;
+                    }
+                @keyframes stroke-offset{
+                    0%{stroke-dashoffset: -200%}
+                    100% {stroke-dashoffset: 0%; opacity: 0.75;}
+                }
+    </style>
+    <body>
+        <svg viewBox="0 0 960 300">
+            <symbol id="s-text">
+                <text text-anchor="middle" x="50%" y="40%" class="fony" id="demo"></text>
+                <text text-anchor="middle" x="50%" y="80%" class="fony" id="demo2" style="font-size:0.5em;"></text>
+            </symbol>
+            <g>
+                <use xlink:href="#s-text" class="text-copy"></use>
+            </g>
+        </svg>
+        <div id="demo" class="text-focus-in-1"></div>
+        <div id="demo2" class="text-focus-in" style="margin-left: 70px;"></div>
+        <script>
+        var d = new Date();
+        document.getElementById("demo").innerHTML=d.toDateString();
+        var myVar = setInterval(myTimer,0.000001);
+        function myTimer(){
+            var t = new Date();
+            document.getElementById("demo2").innerHTML=t.toLocaleTimeString();
+            }
+            </script>
+    </body>
+</html>
