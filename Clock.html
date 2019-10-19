@@ -1,3 +1,6 @@
+/*
+    Original Repo: https://github.com/Amrsamy19/Basic-Clock
+*/
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,22 +40,22 @@
     <body>
         <svg viewBox="0 0 960 300">
             <symbol id="s-text">
-                <text text-anchor="middle" x="50%" y="40%" class="fony" id="demo"></text>
-                <text text-anchor="middle" x="50%" y="80%" class="fony" id="demo2" style="font-size:0.5em;"></text>
+                <text text-anchor="middle" x="50%" y="40%" class="fony" id="Date"></text>
+                <text text-anchor="middle" x="50%" y="80%" class="fony" id="Time" style="font-size:0.5em;"></text>
             </symbol>
             <g>
                 <use xlink:href="#s-text" class="text-copy"></use>
             </g>
         </svg>
-        <div id="demo" class="text-focus-in-1"></div>
-        <div id="demo2" class="text-focus-in" style="margin-left: 70px;"></div>
+        <div id="Date" class="text-focus-in-1"></div>
+        <div id="Time" class="text-focus-in" style="margin-left: 70px;"></div>
         <script>
         var d = new Date();
-        document.getElementById("demo").innerHTML=d.toDateString();
+        document.getElementById("Date").innerHTML=d.toDateString();
         var myVar = setInterval(myTimer,0.000001);
-        function myTimer(){
+        function DisplayTime(){
             var t = new Date();
-            document.getElementById("demo2").innerHTML=t.toLocaleTimeString();
+            document.getElementById("Time").innerHTML=t.toLocaleTimeString();
             }
             </script>
     </body>
