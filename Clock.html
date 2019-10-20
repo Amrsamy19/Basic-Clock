@@ -49,7 +49,7 @@
         <script>
         var d = new Date();
         document.getElementById("Date").innerHTML=d.toDateString();
-        var myVar = setInterval(myTimer,0.000001);
+        var myVar = setInterval(DisplayTime,0.000001);
         function DisplayTime(){
             var t = new Date();
             document.getElementById("Time").innerHTML=t.toLocaleTimeString();
